@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改文章</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            background:url(/assets/img/demo.jpg) no-repeat center top;
+            background-size:cover;
+            background-attachment:fixed;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<div class="container mt-3">
+    {{template  "header" .}}
+
+    <form action="/article/{{ .post.ID }}" method="post">
+        <button type="submit" class="btn btn-primary">修改</button>
+        <div class="col-md-4 mt-3">
+
+            <label for="title" class="form-label">请输入标题</label>
+
+            <input type="text" name="title" class="form-control"  id="title" value="{{ .post.Title}}"><br>
+
+            <label for="tag" class="form-label">请输入标签</label>
+            <input type="text" name="tag" class="form-control" id="tag" value="{{ .post.Tag}}"><br>
+
+        </div>
+        <link rel="stylesheet" href="/assets/editormd/css/editormd.css" />
+        <div id="test-editor">
+            <!--    {{.post.Title}}-->
+            <textarea name="content" style="display:none;">{{ .post.Content}}</textarea>
+        </div>
+    </form>
+
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="/assets/editormd/editormd.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var editor = editormd("test-editor", {
+                // width  : "100%",
+                height : "600px",
+                path   : "/assets/editormd/lib/"
+            });
+        });
+    </script>
+</div>
+</body>
+</html>
+
+</div>
+
+
+

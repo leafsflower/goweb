@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <style>
+    body{
+      background:url(/assets/img/demo.jpg) no-repeat center top;
+      background-size:cover;
+      background-attachment:fixed;
+    }
+
+  </style>
+  <script>
+    function loadXMLDoc()
+    {
+      var username = document.getElementById("exampleInputEmail1").value
+      console.log(username)
+      ajx = new XMLHttpRequest()
+      ajx.open("post","/email",true);
+      ajx.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+      console.log("username=",username)
+      ajx.send("username="+username)
+      // ajx.send("username="+username)
+      alert("验证码已发送")
+
+
+    }
+  </script>
+</head>
+<body>
+<div class="container mt-3">
+  {{template  "header" .}}
+  <form method="post" action="/register">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">用户名</label>
+      <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">密码</label>
+      <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword2" class="form-label">确认密码</label>
+      <input type="password" name="password1" class="form-control" id="exampleInputPassword2">
+    </div>
+
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">验证码</label>
+      <input type="text" name="emailcode" class="form-control" id="Email1" aria-describedby="emailHelp">
+    </div>
+    <button type="submit" class="btn btn-primary">注册</button>
+
+
+  </form>
+  <button type="button" class="btn btn-primary"  onclick="loadXMLDoc()">Code</button>
+</div>
+
+<script !src=""></script>

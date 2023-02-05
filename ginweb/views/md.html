@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>editormd</title>
+  <!-- 页面解析markdown为HTML显示需要的css -->
+  <link rel="stylesheet" href="/assets/editormd/css/editormd.css"/>
+  <link rel="stylesheet" href="/assets/highlight/styles/default.min.css"/>
+</head>
+<body>
+<div id="myEditor" style="width: max-content;">
+  <textarea style="display:none;" >#### 类型推断 ```print("hello")```</textarea>
+
+</div>
+<script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="/assets/editormd/editormd.min.js"></script>
+<!-- 页面markdown解析成HTML需要的js -->
+<script src="/assets/editormd/lib/marked.min.js"></script>
+<script src="/assets/editormd/lib/prettify.min.js"></script>
+<script src="/assets/editormd/lib/raphael.min.js"></script>
+<script src="/assets/editormd/lib/underscore.min.js"></script>
+<script src="/assets/editormd/lib/sequence-diagram.min.js"></script>
+<script src="/assets/editormd/lib/flowchart.min.js"></script>
+<script src="/assets/editormd/lib/jquery.flowchart.min.js"></script>
+<!--通过editor.md渲染-->
+<script type="text/javascript">
+  editormd.markdownToHTML("myEditor", {
+    htmlDecode      : "style,script,iframe",  // you can filter tags decode
+    emoji           : true,
+    taskList        : true,
+    tex             : true,  // 默认不解析
+    flowChart       : true,  // 默认不解析
+    sequenceDiagram : true  // 默认不解析
+  });
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<script type="text/javascript">
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>

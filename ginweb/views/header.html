@@ -1,0 +1,39 @@
+
+{{ define "header" }}
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+  <h4><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chat-left-dots" viewBox="0 0 16 16">
+    <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+    <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+  </svg> Flower</h4>
+
+
+
+
+  <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+    {{if .IsLogin}}
+    <li><a href="/post" class="nav-link px-2 link-secondary">写博客</a></li>
+    {{end}}
+    <li><a href='/' class="nav-link px-2 link-secondary">首页</a></li>
+
+    <li><a href='/' class="nav-link px-2 link-dark">博客</a></li>
+
+  </ul>
+
+  <div class="col-md-3 text-end">
+    {{if .IsLogin}}
+    <a type="button" href='javascript:if(confirm("确定退出吗？")){location="/exit"}'
+       class="btn btn-primary">退出</a>
+<!--   <a type="button"-->
+<!--      class="btn btn-primary"-->
+<!--      href='javascript:if(confirm("确定退出吗？")){location="/exit"}'>退出</a>-->
+    {{else}}
+
+    <a type="button" href="/login" class="btn btn-outline-primary me-2">登录</a>
+    <a type="button" href="/register" class="btn btn-primary">注册</a>
+
+    {{end}}
+
+  </div>
+</header>
+{{ end }}
+

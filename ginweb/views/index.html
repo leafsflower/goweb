@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <script src="/assets/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/assets/editormd/css/editormd.css" />
+    <style>
+        body{
+            background:url(/assets/img/demo.jpg) no-repeat center top;
+            background-size:cover;
+            background-attachment:fixed;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container mt-3">
+  {{template  "header" .}}
+
+    <div class="col-md-8">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+            文章列表
+        </h3>
+        {{ range $idx,$hobby := .posts  }}
+
+        <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
+            <div class="col-md-8 px-0">
+                <h4 class="display-4 fst-italic">{{ $hobby.Title }} </h4>
+                <p class="blog-post-meta">{{ $hobby.Ctime}} by <a class="btn btn-light btn-sm" href="#"><span class="badge rounded-pill text-bg-light">flower</span>
+                </a></p>
+
+
+
+                <p class="lead my-3">{{ $hobby.Description }}</p>
+                <p class="lead mb-0"><a href="/article/{{ $hobby.ID }}" class="text-white fw-bold">Continue reading...</a></p>
+            </div>
+        </div>
+        {{ end }}
+
+
+        {{template  "footer" .}}
+
+
+
+
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
